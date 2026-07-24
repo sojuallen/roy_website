@@ -4,8 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Roy's Learning Journey</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #fef9f0 0%, #eef4fb 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      text-align: center;
+      margin: 2rem;
+    }
+    .card h1 {
+      font-family: Georgia, serif;
+      color: #c47524;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .card .subtitle {
+      color: #8a7a6a;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      margin-bottom: 0.8rem;
+    }
+    .btn-primary {
+      background: #e8913a;
+      color: white;
+      box-shadow: 0 3px 12px rgba(232,145,58,0.3);
+    }
+    .btn-primary:hover { background: #c47524; transform: translateY(-1px); }
+    .btn-secondary {
+      background: white;
+      color: #5b8cbd;
+      border: 2px solid #5b8cbd;
+    }
+    .btn-secondary:hover { background: #e8f1fa; }
+    .btn-home {
+      color: #8a7a6a;
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+      display: inline-block;
+    }
+    .note {
+      font-size: 0.78rem;
+      color: #aaa;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      line-height: 1.7;
+    }
+    .note strong { color: #8a7a6a; }
+    .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div class="card">
+    <div class="icon">📝</div>
+    <h1>Roy's Admin Panel</h1>
+    <p class="subtitle">
+      Click below to edit the timeline. GitHub handles the login — only
+      collaborators on this repo can save changes.
+    </p>
+
+    <a href="https://github.com/sojuallen/roy_website/edit/main/data/entries.json"
+       class="btn btn-primary" target="_blank">
+      Edit Timeline Entries
+    </a>
+
+    <a href="https://github.com/sojuallen/roy_website/upload/main/images/uploads"
+       class="btn btn-secondary" target="_blank">
+      Upload Images
+    </a>
+
+    <a href="/" class="btn-home">← Back to Roy's Journey</a>
+
+    <p class="note">
+      <strong>How it works:</strong><br>
+      Clicking "Edit Timeline" opens GitHub's built-in editor.
+      Sign in with your GitHub account, make changes, and commit.
+      The site updates in about a minute.
+    </p>
+  </div>
 </body>
 </html>

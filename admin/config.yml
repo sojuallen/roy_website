@@ -1,10 +1,13 @@
-backend:
-  name: github
-  repo: sojuallen/roy_website
-  branch: main
-  base_url: PASTE_YOUR_VERCEL_URL_HERE/api
-  auth_endpoint: auth
-  app_id: Ov23lip87Ku83WOaNtYS
+# Decap CMS configuration (future use)
+#
+# To enable a rich drag-and-drop CMS editor, deploy this repo
+# to Netlify and enable Netlify Identity. Then uncomment and
+# configure the backend below.
+
+# backend:
+#   name: git-gateway
+#   repo: sojuallen/roy_website
+#   branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
