@@ -2,7 +2,7 @@ backend:
   name: github
   repo: sojuallen/roy_website
   branch: main
-  base_url: https://api.netlify.com/auth
+  base_url: PASTE_YOUR_VERCEL_URL_HERE/api
   auth_endpoint: auth
   app_id: Ov23lip87Ku83WOaNtYS
 
