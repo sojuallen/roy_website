@@ -1,9 +1,18 @@
+# To enable the rich CMS editor (drag-and-drop, image uploads),
+# register a GitHub OAuth App at:
+#   GitHub → Settings → Developer settings → OAuth Apps → New OAuth App
+#
+# Fill in:
+#   Homepage URL:     https://sojuallen.github.io/roy_website
+#   Callback URL:     https://sojuallen.github.io/roy_website/admin
+#
+# Then update the config below and replace admin/index.html with
+# the Decap CMS version (see README).
+
 backend:
   name: github
   repo: sojuallen/roy_website
   branch: main
-  base_url: https://api.netlify.com/auth
-  auth_endpoint: auth
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"

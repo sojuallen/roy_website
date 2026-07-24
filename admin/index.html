@@ -4,8 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin — Roy's Learning Journey</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .admin-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(180deg, #fef9f0 0%, #eef4fb 100%);
+    }
+    .admin-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    .admin-card h1 {
+      font-family: Georgia, serif;
+      color: #c47524;
+      margin-bottom: 0.5rem;
+    }
+    .admin-card p {
+      color: #8a7a6a;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .admin-btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #e8913a;
+      color: white;
+      box-shadow: 0 3px 12px rgba(232,145,58,0.3);
+    }
+    .btn-primary:hover { background: #c47524; }
+    .btn-outline {
+      background: white;
+      color: #5b8cbd;
+      border: 2px solid #5b8cbd;
+      margin-top: 1rem;
+    }
+    .btn-outline:hover { background: #e8f1fa; }
+    .admin-steps {
+      text-align: left;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+    }
+    .admin-steps h3 {
+      font-size: 0.85rem;
+      color: #8a7a6a;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .admin-steps ol {
+      padding-left: 1.25rem;
+      color: #8a7a6a;
+      font-size: 0.85rem;
+      line-height: 2;
+    }
+    .admin-steps code {
+      background: #f5f0eb;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <div class="admin-page">
+    <div class="admin-card">
+      <h1>Roy's Admin Panel</h1>
+      <p>
+        To add or edit books and events, open the entries file on GitHub,
+        make your changes, and save. It's just like editing a document!
+      </p>
+
+      <a href="https://github.com/sojuallen/roy_website/edit/main/data/entries.json"
+         class="admin-btn btn-primary" target="_blank">
+        Edit entries.json on GitHub
+      </a>
+
+      <br>
+
+      <a href="https://github.com/sojuallen/roy_website/upload/main/images/uploads"
+         class="admin-btn btn-outline" target="_blank">
+        Upload book covers / icons
+      </a>
+
+      <div class="admin-steps">
+        <h3>How to add an entry</h3>
+        <ol>
+          <li>Click the button above to open the editor</li>
+          <li>Add a new entry inside the <code>"entries": [...]</code> list, for example:
+            <br><code style="display:inline-block;margin-top:0.3rem;background:#f5f0eb;padding:0.3rem 0.5rem;border-radius:6px;font-size:0.78rem;">
+              { "type": "book", "date": "2026-07-24",<br>
+              &nbsp;&nbsp;"title": "My New Book",<br>
+              &nbsp;&nbsp;"coverImage": "", "details": "..." }
+            </code>
+          </li>
+          <li>Scroll down and click <strong>"Commit changes"</strong></li>
+          <li>The site updates automatically in a minute!</li>
+        </ol>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

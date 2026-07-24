@@ -13,31 +13,16 @@ A personal learning timeline website for Roy, hosted on GitHub Pages.
 ### 2. Replace Profile Photo
 
 Replace `images/profile.jpg` with a real photo of Roy (square, at least 300x300px).
+Until then, the site shows a cute rocket-themed placeholder.
 
-### 3. Set Up Admin Panel (Decap CMS)
+### 3. Editing Entries (Admin)
 
-To enable Roy to edit his timeline entries from any device:
+**Simple way (recommended, works now):**
 
-1. Go to GitHub → **Settings → Developer settings → OAuth Apps**
-2. Click **New OAuth App** and fill in:
-   - **Application name**: "Roy's Learning Journey"
-   - **Homepage URL**: `https://sojuallen.github.io/roy_website`
-   - **Authorization callback URL**: `https://api.netlify.com/auth/done`
-3. Click **Register application**
-4. Click **Generate a new client secret** and copy both the Client ID and secret
-5. Go to `admin/config.yml`, add under `backend`:
-   ```yaml
-   auth_endpoint: auth
-   ```
-   No additional config needed on the site side — Decap CMS uses Netlify's free auth gateway.
+Visit `https://sojuallen.github.io/roy_website/admin` and click "Edit entries.json on GitHub".
+This opens GitHub's built-in JSON editor. Make changes, commit, and the site updates in ~1 minute.
 
-6. Roy can now visit `https://sojuallen.github.io/roy_website/admin` and log in with his GitHub account to add/edit books and events.
-
-### 4. Editing Timeline Directly
-
-Entries are stored in `data/entries.json`. You can also edit this file directly on GitHub.
-
-Each entry has:
+Each entry looks like:
 ```json
 {
   "type": "book | event",
@@ -45,15 +30,27 @@ Each entry has:
   "title": "Entry title",
   "coverImage": "path/to/image.jpg",
   "icon": "path/to/icon.png",
-  "details": "Description in plain text or markdown"
+  "details": "Description text"
 }
 ```
 
-### 5. Adding Images
+**Rich CMS editor (drag-and-drop, image uploads):**
 
-- Upload book covers and event icons via the admin panel (they go to `images/uploads/`)
-- Or place them manually in the `images/uploads/` directory
+To enable the full Decap CMS editor with a visual form, image uploads, and drag-and-drop:
+
+1. Create a free Netlify account at [netlify.com](https://netlify.com)
+2. Create a new site from your GitHub repo
+3. Enable Netlify Identity in the site settings
+4. Register a GitHub OAuth App at GitHub → Developer settings
+5. Update `admin/config.yml` with the OAuth details (see comments in the file)
+
+### 4. Adding Images
+
+Upload images to `images/uploads/` through GitHub's web interface or by pushing to the repo.
 
 ## Local Development
 
-Just open `index.html` in a browser. No build tools needed.
+```bash
+python -m http.server 8080
+```
+Then open `http://localhost:8080`.
