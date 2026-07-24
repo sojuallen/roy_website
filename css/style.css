@@ -236,8 +236,8 @@ body {
 .profile-avatar { flex-shrink: 0; position: relative; }
 
 .profile-avatar img {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-accent);
@@ -245,8 +245,8 @@ body {
 }
 
 .avatar-fallback {
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--color-accent);
@@ -687,8 +687,8 @@ body {
 
   .profile-avatar img,
   .avatar-fallback {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
 
   .profile-info h1 {
