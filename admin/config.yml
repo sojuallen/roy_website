@@ -1,0 +1,48 @@
+backend:
+  name: github
+  repo: sojuallen/roy_website
+  branch: main
+  base_url: https://api.netlify.com/auth
+  auth_endpoint: auth
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "data"
+    label: "Timeline Data"
+    files:
+      - name: "entries"
+        label: "Timeline Entries"
+        file: "data/entries.json"
+        fields:
+          - name: "entries"
+            label: "Entries"
+            widget: "list"
+            summary: "{{type | upper}}: {{title}} — {{date}}"
+            fields:
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                  - { label: "Book", value: "book" }
+                  - { label: "Event", value: "event" }
+              - label: "Date"
+                name: "date"
+                widget: "date"
+                format: "YYYY-MM-DD"
+              - label: "Title"
+                name: "title"
+                widget: "string"
+              - label: "Cover Image (books only)"
+                name: "coverImage"
+                widget: "image"
+                required: false
+              - label: "Event Icon (events only)"
+                name: "icon"
+                widget: "image"
+                required: false
+              - label: "Details"
+                name: "details"
+                widget: "markdown"
+                required: false

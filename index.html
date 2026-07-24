@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roy's Learning Journey</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="side-timeline" id="side-timeline">
+    <div class="side-line"></div>
+    <div class="side-dots" id="side-dots"></div>
+    <div class="side-highlight" id="side-highlight"></div>
+  </div>
+
+  <div class="main-content">
+    <section class="hero">
+      <div class="hero-stars">
+        <span class="star star-s" style="top:8%;left:6%;animation-delay:0s"></span>
+        <span class="star star-m" style="top:18%;left:14%;animation-delay:0.4s"></span>
+        <span class="star star-s" style="top:12%;left:28%;animation-delay:1.1s"></span>
+        <span class="star star-lg" style="top:30%;left:7%;animation-delay:0.7s"></span>
+        <span class="star star-m" style="top:22%;left:44%;animation-delay:0.2s"></span>
+        <span class="star star-s" style="top:8%;left:58%;animation-delay:1.5s"></span>
+        <span class="star star-lg" style="top:25%;left:72%;animation-delay:0.9s"></span>
+        <span class="star star-m" style="top:10%;left:84%;animation-delay:0.3s"></span>
+        <span class="star star-s" style="top:35%;left:90%;animation-delay:1.3s"></span>
+        <span class="star star-s" style="top:15%;left:38%;animation-delay:1.8s"></span>
+      </div>
+
+      <svg class="hero-rocket" viewBox="0 0 80 130" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 0 C40 15 52 40 55 52 L55 88 L40 95 L25 88 L25 52 C28 40 40 15 40 0Z" fill="#6baddf"/>
+        <path d="M40 0 C40 15 28 40 25 52 L25 88 L40 95 L55 88 L55 52 C52 40 40 15 40 0Z" fill="#8ec8f2"/>
+        <path d="M34 52 L34 88 L40 95 L46 88 L46 52" fill="#4a90c4" opacity="0.4"/>
+        <circle cx="40" cy="58" r="9" fill="white" stroke="#4a90c4" stroke-width="1.5"/>
+        <circle cx="40" cy="58" r="5" fill="#2c3e50"/>
+        <circle cx="42" cy="55" r="2" fill="white" opacity="0.7"/>
+        <path d="M25 72 L9 96 L25 84 Z" fill="#e8913a"/>
+        <path d="M55 72 L71 96 L55 84 Z" fill="#e8913a"/>
+        <path d="M28 90 Q40 135 40 135 Q40 135 52 90" fill="#ffcc44" opacity="0.9"/>
+        <path d="M33 90 Q40 122 40 122 Q40 122 47 90" fill="#ff7733" opacity="0.85"/>
+      </svg>
+
+      <svg class="hero-moon" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="32" fill="#f5e6b8"/>
+        <circle cx="30" cy="30" r="5" fill="#e8d48b" opacity="0.5"/>
+        <circle cx="50" cy="45" r="7" fill="#e8d48b" opacity="0.4"/>
+        <circle cx="35" cy="52" r="4" fill="#e8d48b" opacity="0.35"/>
+      </svg>
+
+      <header class="profile">
+        <div class="profile-card">
+          <div class="profile-avatar">
+            <img src="images/profile.jpg" alt="Roy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="avatar-fallback" style="display:none;">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="50" fill="#1a1a3e"/>
+                <circle cx="25" cy="18" r="1.5" fill="white"/>
+                <circle cx="72" cy="12" r="1.2" fill="white"/>
+                <circle cx="80" cy="35" r="1" fill="white" opacity="0.7"/>
+                <circle cx="15" cy="40" r="1.3" fill="white"/>
+                <circle cx="65" cy="8" r="1" fill="white" opacity="0.6"/>
+                <path d="M50 80 L37 48 L37 62 L50 68 L63 62 L63 48Z" fill="#6baddf"/>
+                <circle cx="50" cy="55" r="9" fill="white"/>
+                <circle cx="50" cy="55" r="5.5" fill="#1a1a3e"/>
+                <path d="M37 62 L25 78 L37 70Z" fill="#e8913a"/>
+                <path d="M63 62 L75 78 L63 70Z" fill="#e8913a"/>
+                <path d="M42 76 Q50 96 50 96 Q50 96 58 76" fill="#ffcc44"/>
+                <path d="M45 76 Q50 90 50 90 Q50 90 55 76" fill="#ff7733"/>
+              </svg>
+            </div>
+          </div>
+          <div class="profile-info">
+            <h1>Roy's Learning Journey</h1>
+            <p class="profile-bio">
+              Welcome to Roy's learning adventure! This is where Roy records the books he reads
+              and the milestones he achieves along the way. Every tile on this path is a step
+              forward in his journey of curiosity and growth.
+            </p>
+          </div>
+        </div>
+      </header>
+    </section>
+
+    <main class="timeline-wrapper" id="timeline-wrapper">
+      <svg id="timeline-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div id="tiles-layer" class="tiles-layer"></div>
+    </main>
+
+    <footer class="site-footer">
+      <p>&#9829; Roy's Learning Journey</p>
+    </footer>
+  </div>
+
+  <div class="scroll-hint" id="scroll-hint">
+    <span>keep scrolling</span>
+    <div class="scroll-arrow"></div>
+  </div>
+
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/modal.js"></script>
+  <script src="js/timeline.js"></script>
+</body>
+</html>
