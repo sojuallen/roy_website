@@ -2,38 +2,24 @@
   "entries": [
     {
       "type": "book",
-      "date": "2026-01-12",
-      "title": "The Very Hungry Caterpillar",
+      "date": "2026-07-22",
+      "title": "Greenglass House",
       "coverImage": "",
-      "details": "A beautiful story about a caterpillar eating his way through the week before becoming a butterfly. I loved the colorful illustrations!"
+      "details": "There was once a hotel called greenglass house. One day a visitor/guest was caught stealing and got kicked out. Roy's note: NEVER steal! because: 1. it is THE law. 2. You will go to jail"
     },
     {
       "type": "event",
-      "date": "2026-02-08",
-      "title": "First Day of School",
+      "date": "2026-03-21",
+      "title": "1st place school Swimming Carnival",
       "icon": "",
-      "details": "Started first grade! I was a little nervous, but I made three new friends on the first day."
+      "details": "I won 1st place for my school's swimming carnival! 100m free style with 49.03 seconds! I was sooo happy!"
     },
     {
       "type": "book",
-      "date": "2026-03-15",
-      "title": "Charlotte's Web",
+      "date": "2026-07-26",
+      "title": "I survived the Titanic",
       "coverImage": "",
-      "details": "A heartwarming story about friendship between Wilbur the pig and Charlotte the spider. It taught me about loyalty and sacrifice."
+      "details": "This book is about Aunt Daisy taking George and Phoebe on the Titanic, but it sank, but they managed to survive. I learnt about how Titanic sank."
     },
-    {
-      "type": "event",
-      "date": "2026-04-22",
-      "title": "Spelling Bee Finalist",
-      "icon": "",
-      "details": "I made it to the school spelling bee finals! The word 'phenomenon' got me, but I'm proud of reaching the top 5."
-    },
-    {
-      "type": "book",
-      "date": "2026-05-10",
-      "title": "The Magic Tree House",
-      "coverImage": "",
-      "details": "Jack and Annie travel through time in a magic tree house. I read three books in this series and each adventure was exciting."
-    }
   ]
 }
