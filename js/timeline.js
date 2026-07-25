@@ -3,7 +3,7 @@ var ENTRIES_PER_ROW = 4;
 var ROW_HEIGHT = 200;
 var PADDING_TOP = 80;
 var PADDING_BOTTOM = 80;
-var TILE_SIZE = 120;
+var TILE_SIZE = 140;
 
 var _entries = [];
 var _tilePositions = [];
@@ -198,13 +198,10 @@ function placeTiles(layer, svgWidth) {
       var iconWrap = document.createElement('div');
       iconWrap.className = 'event-icon-wrap';
 
-      var iconCircle = document.createElement('div');
-      iconCircle.className = 'event-icon-circle';
       var iconImg = document.createElement('img');
       iconImg.src = entry.icon || 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="8" r="7" fill="%236c63ff"/><polygon points="10,22 18,14 26,22" fill="%236c63ff"/><rect x="14" y="20" width="8" height="14" rx="3" fill="%23ffc857"/></svg>');
       iconImg.alt = entry.title;
-      iconCircle.appendChild(iconImg);
-      iconWrap.appendChild(iconCircle);
+      iconWrap.appendChild(iconImg);
 
       var label2 = document.createElement('div');
       label2.className = 'tile-label';

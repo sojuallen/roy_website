@@ -20,7 +20,7 @@
   --font-display: 'Georgia', 'Times New Roman', serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
   --sidebar-width: 60px;
-  --tile-size: 120px;
+  --tile-size: 140px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -590,9 +590,11 @@ body {
 
 .tile-book .tile-cover {
   width: 100%;
-  height: 84px;
-  object-fit: cover;
+  height: 104px;
+  object-fit: contain;
   display: block;
+  background: #fafaf8;
+  padding: 6px;
 }
 
 .tile-book .tile-content { border: 2px solid rgba(255, 107, 53, 0.15); }
@@ -607,28 +609,17 @@ body {
 }
 
 .tile-event .event-icon-wrap {
-  height: 84px;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--color-event-light);
+  min-height: 0;
 }
 
-.tile-event .event-icon-circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid var(--color-event);
-  box-shadow: 0 2px 10px rgba(108, 99, 255, 0.15);
-}
-
-.tile-event .event-icon-circle img {
-  width: 36px;
-  height: 36px;
+.tile-event .event-icon-wrap img {
+  max-width: 80%;
+  max-height: 80%;
   object-fit: contain;
 }
 
@@ -843,7 +834,7 @@ body {
 @media (max-width: 700px) {
   :root {
     --sidebar-width: 44px;
-    --tile-size: 100px;
+    --tile-size: 110px;
   }
 
   .hero {
@@ -883,7 +874,7 @@ body {
 @media (max-width: 480px) {
   :root {
     --sidebar-width: 36px;
-    --tile-size: 88px;
+    --tile-size: 96px;
   }
 
   .side-line { left: 22px; }
