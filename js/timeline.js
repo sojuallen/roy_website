@@ -10,7 +10,7 @@ var _tilePositions = [];
 var _svgHeight = 0;
 
 function loadTimeline() {
-  fetch('data/entries.json')
+  fetch('data/entries.json?v=' + Date.now())
     .then(function (res) {
       if (!res.ok) throw new Error('Failed to load entries');
       return res.json();
