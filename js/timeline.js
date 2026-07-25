@@ -21,6 +21,7 @@ function loadTimeline() {
         return new Date(a.date) - new Date(b.date);
       });
       renderAll();
+      populateStats();
     })
     .catch(function (err) {
       console.error('Timeline load error:', err);
@@ -115,7 +116,6 @@ function drawPath(svg, numRows, margin, rightX) {
   path.setAttribute('class', 'timeline-path');
   svg.appendChild(path);
 
-  // small dots at corners for visual polish
   for (var cr = 1; cr < numRows; cr++) {
     var cx = (cr % 2 === 1) ? rightX : margin;
     var cy = PADDING_TOP + cr * ROW_HEIGHT + ROW_HEIGHT / 2;
@@ -142,6 +142,22 @@ function drawStartDot(svg, x, y) {
   ring.setAttribute('r', '16');
   ring.setAttribute('class', 'timeline-start-ring');
   svg.appendChild(ring);
+}
+
+function populateStats() {
+  var bookCount = 0;
+  var eventCount = 0;
+  for (var i = 0; i < _entries.length; i++) {
+    if (_entries[i].type === 'book') bookCount++;
+    else eventCount++;
+  }
+
+  var elBooks = document.getElementById('stat-books');
+  var elEvents = document.getElementById('stat-events');
+  var elTotal = document.getElementById('stat-total');
+  if (elBooks) elBooks.textContent = bookCount;
+  if (elEvents) elEvents.textContent = eventCount;
+  if (elTotal) elTotal.textContent = _entries.length;
 }
 
 function placeTiles(layer, svgWidth) {
@@ -185,7 +201,7 @@ function placeTiles(layer, svgWidth) {
       var iconCircle = document.createElement('div');
       iconCircle.className = 'event-icon-circle';
       var iconImg = document.createElement('img');
-      iconImg.src = entry.icon || 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="8" r="7" fill="%235b8cbd"/><polygon points="10,22 18,14 26,22" fill="%235b8cbd"/><rect x="14" y="20" width="8" height="14" rx="3" fill="%23e2b96f"/></svg>');
+      iconImg.src = entry.icon || 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="8" r="7" fill="%236c63ff"/><polygon points="10,22 18,14 26,22" fill="%236c63ff"/><rect x="14" y="20" width="8" height="14" rx="3" fill="%23ffc857"/></svg>');
       iconImg.alt = entry.title;
       iconCircle.appendChild(iconImg);
       iconWrap.appendChild(iconCircle);
@@ -219,10 +235,16 @@ function buildSideTimeline() {
   for (var i = 0; i < _entries.length; i++) {
     var entry = _entries[i];
     var dot = document.createElement('div');
-    dot.className = 'side-dot';
+    dot.className = 'side-dot type-' + entry.type;
     dot.setAttribute('data-index', i);
+    dot.setAttribute('data-title', entry.title);
+    dot.setAttribute('data-date', entry.date);
     dot.style.top = ((i / (_entries.length - 1 || 1)) * 100) + '%';
-    dot.setAttribute('data-label', entry.title);
+
+    var dateLabel = document.createElement('span');
+    dateLabel.className = 'side-dot-date';
+    dateLabel.textContent = yearOnly(entry.date);
+    dot.appendChild(dateLabel);
 
     dot.addEventListener('click', function () {
       var idx = parseInt(this.getAttribute('data-index'));
@@ -244,13 +266,14 @@ function setupScrollObserver() {
   var tiles = document.querySelectorAll('.timeline-tile');
   var dots = document.querySelectorAll('.side-dot');
   var highlight = document.getElementById('side-highlight');
+  var tooltip = document.getElementById('side-tooltip');
 
   var observer = new IntersectionObserver(
-    function (entries) {
+    function (observed) {
       var visible = [];
-      for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
-          visible.push(parseInt(entries[i].target.getAttribute('data-index')));
+      for (var i = 0; i < observed.length; i++) {
+        if (observed[i].isIntersecting) {
+          visible.push(parseInt(observed[i].target.getAttribute('data-index')));
         }
       }
       if (visible.length > 0) {
@@ -262,11 +285,22 @@ function setupScrollObserver() {
           dots[activeIndex].classList.add('active');
           if (highlight) {
             highlight.style.top = dots[activeIndex].style.top;
+            highlight.classList.add('visible');
+          }
+          if (tooltip) {
+            var entryDate = dots[activeIndex].getAttribute('data-date');
+            var entryTitle = dots[activeIndex].getAttribute('data-title');
+            tooltip.textContent = entryTitle + ' · ' + formatFullDate(entryDate);
+            tooltip.style.top = dots[activeIndex].style.top;
+            tooltip.classList.add('visible');
           }
         }
+      } else if (highlight) {
+        highlight.classList.remove('visible');
+        if (tooltip) tooltip.classList.remove('visible');
       }
     },
-    { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    { rootMargin: '-20% 0px -55% 0px', threshold: 0 }
   );
 
   for (var k = 0; k < tiles.length; k++) {
@@ -301,7 +335,7 @@ function setupScrollHint() {
 
 function showEmptyState() {
   var wrapper = document.querySelector('.timeline-wrapper');
-  wrapper.innerHTML = '<div class="empty-state"><div class="empty-icon">✦</div><p>No entries yet!</p><p>Roy\'s journey starts here.</p></div>';
+  wrapper.innerHTML = '<div class="empty-state"><div class="empty-icon">🚀</div><p>No entries yet!</p><p>Roy\'s mission log is waiting for its first entry.</p></div>';
 }
 
 /* ── Utilities ────────────────────────── */
@@ -310,6 +344,17 @@ function shortDate(dateStr) {
   if (!dateStr) return '';
   var d = new Date(dateStr + 'T00:00:00');
   return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+function yearOnly(dateStr) {
+  if (!dateStr) return '';
+  return dateStr.slice(0, 4);
+}
+
+function formatFullDate(dateStr) {
+  if (!dateStr) return '';
+  var d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
 function escapeHTML(str) {
@@ -333,6 +378,7 @@ function throttle(fn, delay) {
 
 window.addEventListener('resize', throttle(function () {
   if (_entries.length > 0) renderAll();
+  populateStats();
 }, 400));
 
 /* ── Init ──────────────────────────────── */
