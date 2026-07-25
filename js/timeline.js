@@ -3,7 +3,7 @@ var ENTRIES_PER_ROW = 4;
 var ROW_HEIGHT = 200;
 var PADDING_TOP = 80;
 var PADDING_BOTTOM = 80;
-var TILE_SIZE = 140;
+var TILE_SIZE = 160;
 
 var _entries = [];
 var _tilePositions = [];
