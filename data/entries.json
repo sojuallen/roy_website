@@ -16,6 +16,20 @@
     },
     {
       "type": "book",
+      "date": "2026-04-01",
+      "title": "Runt",
+      "coverImage": "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1658414514i/61640979.jpg",
+      "details": "Runt is about a girl called Anne, who adopted street dog she called Runt. So they entered a competition because they don't have enough money to save the farm from drought. Unfortunately they didn't win, but the rain saved the farm. Roy's note: Always try your best, even you might not make it, sometimes luck is on your side!"
+    },
+    {
+      "type": "book",
+      "date": "2026-07-05",
+      "title": "Blinky Bill",
+      "coverImage": "https://www.brotherhoodbooks.org.au/media/catalog/product/cache/9903d275d05bbeaff4132993adf9325a/6/6/66eecd382a9196f76bbd4e97fafaa5ba.jpg",
+      "details": "Mrs Koala once had a son called Blinky Bill, he was trying to escape home to go on adventures. Along the journey he stole some food becaue he was hungry and curious, but nearly got shot. Finally Blinky found his way home capturd by a man, then he was sent to the zoo with his mum. Roy's note: You must have permission to other people's things even if you are really curious!"
+    },
+    {
+      "type": "book",
       "date": "2026-07-26",
       "title": "I survived the Titanic",
       "coverImage": "https://www.bigw.com.au/medias/sys_master/images/images/h72/h22/151236426301470.jpg",
